@@ -54,7 +54,8 @@ def getUserDetailsAlongWithCompanyName():
     companyId_userList = conn.execute("SELECT companyId FROM user").fetchall()
     if companyId in str(Available_companies):
         if companyId in str(companyId_userList):
-            get_data = conn.execute('''SELECT user.userId, user.userName, user.email, user.mobile, user.password, user.companyId, company.companyName FROM user INNER JOIN company ON user.companyId = company.companyId''').fetchall()
+            get_data = conn.execute('''SELECT user.userId, user.userName, user.email, user.mobile, user.password, user.companyId, company.companyName FROM user INNER JOIN company
+              ON user.companyId = company.companyId''').fetchall()
             users_list = []
             for item in get_data:
                 if item[5] == int(companyId):
